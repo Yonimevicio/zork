@@ -7,13 +7,52 @@
 #include "room.h"
 #include "player.h"
 #include "world.h"
+#include "rapidxml.hpp"
+#include "rapidxml_iterators.hpp"
+#include "rapidxml_print.hpp"
+#include "rapidxml_utils.hpp"
+using namespace rapidxml;
+char * World::ReadFile(string name) {
+	ifstream file;
+	file.open(name);
+	if (file.is_open()) {
+		file.seekg(0, std::ios_base::end);
+		int length = file.tellg();
+		file.seekg(0, std::ios_base::beg);
+		char* buffer = new char[length];
+		file.read(buffer, length);
+		string s = buffer;
+		int i = s.find_last_of("oms>");
+		s.erase(s.begin()+i+1, s.end());
+		strcpy(buffer, s.c_str());
+		return buffer;
+	} else return "";
+	
+}
 
+Room* World::LoadRoomsFromFile(string mapName) {	
+	Room* rooms = new Room[10];
+	xml_document<> doc;
+	char* fileContent = ReadFile(mapName);
+	doc.parse<0>(fileContent);
+	xml_node<> *node = doc.first_node("Rooms");
+	for (xml_node<> *subNode = node->first_node("Room");
+		subNode; subNode = subNode->next_sibling())
+	{
+		cout << "Name" << subNode->first_node("Name")->value() << " ";
+		cout << "Description" << subNode->first_node("Description")->value() << " ";
+		cout << "MapID" << subNode->first_node("MapID")->value() << " ";
+		
+	}
+	return rooms;
+}
 // ----------------------------------------------------
 World::World()
 {
 	tick_timer = clock();
 
 	// Rooms ----
+	Room* rooms = LoadRoomsFromFile("defaultRooms.xml");
 	Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
 	Room* house = new Room("House", "You are inside a beautiful but small white house.");
 	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");

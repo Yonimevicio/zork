@@ -11,6 +11,11 @@ Entity(title, description, NULL)
 {
 	type = ROOM;
 }
+Room::Room() :
+	Entity("", "", NULL)
+{
+	type = ROOM;
+}
 
 // ----------------------------------------------------
 Room::~Room()

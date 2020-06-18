@@ -14,6 +14,7 @@ class Room : public Entity
 {
 public:
 	Room(const char* name, const char* description);
+	Room();
 	~Room();
 
 	void Look() const;

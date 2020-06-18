@@ -1,0 +1,17 @@
+<Rooms>
+	<Room>
+		<Name>Forest</Name>
+		<Description>You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.You are inside a beautiful but small white house.</Description>
+		<MapID>1</MapID>
+	</Room>
+	<Room>
+		<Name>House</Name>
+		<Description>You are inside a beautiful but small white house.</Description>
+		<MapID>2</MapID>
+	</Room>
+	<Room>
+		<Name>Basement</Name>
+		<Description>The basement features old furniture and dim light.</Description>
+		<MapID>3</MapID>
+	</Room>
+</Rooms>

@@ -229,3 +229,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+*.json
+
+*.sqlite
+
+*.db
+
+*.opendb

@@ -4,7 +4,7 @@
 #include <string>
 #include <list>
 #include <time.h>
-
+#include "room.h"
 #define TICK_FREQUENCY 0.5f
 
 using namespace std;
@@ -22,9 +22,12 @@ public :
 	bool Tick(vector<string>& args);
 	bool ParseCommand(vector<string>& args);
 	void GameLoop();
+	
+	
 
 private:
-
+	char* ReadFile(string name);
+	Room* LoadRoomsFromFile(string mapName);
 	clock_t tick_timer;
 	list<Entity*> entities;
 	Player* player;
