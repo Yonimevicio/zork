@@ -27,7 +27,7 @@ public :
 
 private:
 	char* ReadFile(string name);
-	Room* LoadRoomsFromFile(string mapName);
+	void LoadRoomsFromFile(string mapName);
 	clock_t tick_timer;
 	list<Entity*> entities;
 	Player* player;

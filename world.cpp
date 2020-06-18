@@ -30,8 +30,8 @@ char * World::ReadFile(string name) {
 	
 }
 
-Room* World::LoadRoomsFromFile(string mapName) {	
-	Room* rooms = new Room[10];
+void World::LoadRoomsFromFile(string mapName) {	
+	
 	xml_document<> doc;
 	char* fileContent = ReadFile(mapName);
 	doc.parse<0>(fileContent);
@@ -39,12 +39,11 @@ Room* World::LoadRoomsFromFile(string mapName) {
 	for (xml_node<> *subNode = node->first_node("Room");
 		subNode; subNode = subNode->next_sibling())
 	{
-		cout << "Name" << subNode->first_node("Name")->value() << " ";
-		cout << "Description" << subNode->first_node("Description")->value() << " ";
-		cout << "MapID" << subNode->first_node("MapID")->value() << " ";
-		
+		char* roomName = subNode->first_node("Name")->value();
+		char* roomDesc = subNode->first_node("Description")->value();
+		char* roomMapID = subNode->first_node("MapID")->value();
+		entities.push_back(new Room(roomName,roomDesc));
 	}
-	return rooms;
 }
 // ----------------------------------------------------
 World::World()
@@ -52,7 +51,7 @@ World::World()
 	tick_timer = clock();
 
 	// Rooms ----
-	Room* rooms = LoadRoomsFromFile("defaultRooms.xml");
+	LoadRoomsFromFile("defaultRooms.xml");
 	Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
 	Room* house = new Room("House", "You are inside a beautiful but small white house.");
 	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");
