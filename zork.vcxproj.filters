@@ -83,5 +83,8 @@
     <Xml Include="defaultRooms.xml">
       <Filter>Resources</Filter>
     </Xml>
+    <Xml Include="defaultExits.xml">
+      <Filter>Resources</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

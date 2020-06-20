@@ -27,7 +27,9 @@ public :
 
 private:
 	char* ReadFile(string name);
-	void LoadRoomsFromFile(string mapName);
+	void LoadRoomsFromFile(string roomFile);
+	void LoadExitsFromFile(string exitFile);
+	Room* SearchRoom(string name);
 	clock_t tick_timer;
 	list<Entity*> entities;
 	Player* player;

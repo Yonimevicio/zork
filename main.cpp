@@ -7,10 +7,8 @@
 
 using namespace std;
 
-#define BACKSPACE "\033[D\033[K"
+#define BACKSPACE "\033[D\033[K"     
 
-#define WHITE_ "\033[1;36m"
-#define _WHITE "\033[0m"
 
 // -------------------------------------------------
 int main()
@@ -20,7 +18,7 @@ int main()
 	vector<string> args;
 	args.reserve(10);
 
-	cout << WHITE_ "Welcome to MyZork!\n" _WHITE;
+	cout << Cyan_ "Welcome to MyZork!\n" _Cyan;
 	cout << "----------------\n";
 
 	World my_world;

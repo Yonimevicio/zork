@@ -337,7 +337,7 @@ int Creature::ReceiveAttack(int damage)
 	hit_points -= received;
 
 	if(PlayerInRoom())
-		cout << name << " is hit for " << received << " damage (" << prot << " blocked) \n";
+		cout << name << " is hit for " Red_ << received << " damage " _Red " (" << prot << " blocked) \n";
 
 	if(IsAlive() == false)
 		Die();

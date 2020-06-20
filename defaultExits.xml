@@ -1,0 +1,20 @@
+<Exits>
+	<Exit>
+		<Name>west</Name>
+		<OppositeName>east</OppositeName>
+		<Description>Little path</Description>
+		<Origin>House</Origin>
+		<Destination>Forest</Destination>
+		<OneWay>0</OneWay>
+		<Locked>0</Locked>
+	</Exit>
+	<Exit>
+		<Name>down</Name>
+		<OppositeName>up</OppositeName>
+		<Description>Stairs</Description>
+		<Origin>House</Origin>
+		<Destination>Basement</Destination>
+		<OneWay>0</OneWay>
+		<Locked>0</Locked>
+	</Exit>
+</Exits>

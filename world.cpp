@@ -11,6 +11,7 @@
 #include "rapidxml_iterators.hpp"
 #include "rapidxml_print.hpp"
 #include "rapidxml_utils.hpp"
+#include <algorithm> 
 using namespace rapidxml;
 char * World::ReadFile(string name) {
 	ifstream file;
@@ -21,19 +22,18 @@ char * World::ReadFile(string name) {
 		file.seekg(0, std::ios_base::beg);
 		char* buffer = new char[length];
 		file.read(buffer, length);
-		string s = buffer;
-		int i = s.find_last_of("oms>");
-		s.erase(s.begin()+i+1, s.end());
-		strcpy(buffer, s.c_str());
 		return buffer;
 	} else return "";
 	
 }
-
-void World::LoadRoomsFromFile(string mapName) {	
+void World::LoadRoomsFromFile(string roomFile) {	
 	
 	xml_document<> doc;
-	char* fileContent = ReadFile(mapName);
+	char* fileContent = ReadFile(roomFile);
+	string s = fileContent;
+	int i = s.find_last_of("oms>");
+	s.erase(s.begin() + i + 1, s.end());
+	strcpy(fileContent, s.c_str());
 	doc.parse<0>(fileContent);
 	xml_node<> *node = doc.first_node("Rooms");
 	for (xml_node<> *subNode = node->first_node("Room");
@@ -41,9 +41,46 @@ void World::LoadRoomsFromFile(string mapName) {
 	{
 		char* roomName = subNode->first_node("Name")->value();
 		char* roomDesc = subNode->first_node("Description")->value();
-		char* roomMapID = subNode->first_node("MapID")->value();
 		entities.push_back(new Room(roomName,roomDesc));
 	}
+}
+void World::LoadExitsFromFile(string exitFile) {
+	xml_document<> doc;
+	char* fileContent = ReadFile(exitFile);
+	string s = fileContent;
+	int i = s.find_last_of("Exits>");
+	s.erase(s.begin() + i + 1, s.end());
+	strcpy(fileContent, s.c_str());
+	doc.parse<0>(fileContent);
+	xml_node<> *node = doc.first_node("Exits");
+	for (xml_node<> *subNode = node->first_node("Exit");
+		subNode; subNode = subNode->next_sibling())
+	{
+		char* exitName = subNode->first_node("Name")->value();
+		char* exitOpName = subNode->first_node("OppositeName")->value();
+		char* exitDesc = subNode->first_node("Description")->value();
+		char* exitOrigin= subNode->first_node("Origin")->value();
+		char* exitDestination = subNode->first_node("Destination")->value();
+		char* exitOneWay = subNode->first_node("OneWay")->value();
+		char* exitLocked = subNode->first_node("Locked")->value();
+		Room* origin = SearchRoom(exitOrigin);
+		Room* destination = SearchRoom(exitDestination);
+		Exit* ex = new Exit(exitName, exitOpName, exitDesc, origin, destination);
+		if (exitLocked == "1") ex->locked = true;
+		entities.push_back(ex);
+	}
+}
+Room* World::SearchRoom(string name) {
+	for (list<Entity*>::const_iterator it = entities.begin(); it != entities.cend(); ++it)
+	{
+		if ((*it)->type == ROOM)
+		{
+			if (Same((*it)->name, name))
+				return (Room*)(*it);
+		}
+	}
+
+	return NULL;
 }
 // ----------------------------------------------------
 World::World()
@@ -55,18 +92,18 @@ World::World()
 	Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
 	Room* house = new Room("House", "You are inside a beautiful but small white house.");
 	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");
-
+	LoadExitsFromFile("defaultExits.xml");
 	Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
 	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
 	ex2->locked = true;
 
-	entities.push_back(forest);
+	/*entities.push_back(forest);
 	entities.push_back(house);
 	entities.push_back(basement);
 
 	entities.push_back(ex1);
 	entities.push_back(ex2);
-
+*/
 	// Creatures ----
 	Creature* butler = new Creature("Butler", "It's James, the house Butler.", house);
 	butler->hit_points = 10;
@@ -76,7 +113,7 @@ World::World()
 	// Items -----
 	Item* mailbox = new Item("Mailbox", "Looks like it might contain something.", house);
 	Item* key = new Item("Key", "Old iron key.", mailbox);
-	ex2->key = key;
+	//ex2->key = key;
 
 	Item* sword = new Item("Sword", "A simple old and rusty sword.", forest, WEAPON);
 	sword->min_value = 2;
