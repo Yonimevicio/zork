@@ -1,0 +1,38 @@
+<Items>
+	<Item>
+		<Name>Mailbox</Name>
+		<Description>Looks like it might contain something.</Description>
+		<Location>House</Location>
+		<Type></Type>
+		<MinValue></MinValue>
+		<MaxValue></MaxValue>
+		<KeyOf>Stairs</KeyOf>
+	</Item>
+	<Item>
+		<Name>Key</Name>
+		<Description>Old iron key.</Description>
+		<Location>Mailbox</Location>
+		<Type></Type>
+		<MinValue></MinValue>
+		<MaxValue></MaxValue>
+		<KeyOf></KeyOf>
+	</Item>
+	<Item>
+		<Name>Sword</Name>
+		<Description>A simple old and rusty sword.</Description>
+		<Location>Forest</Location>
+		<Type>WEAPON</Type>
+		<MinValue>2</MinValue>
+		<MaxValue>6</MaxValue>
+		<KeyOf></KeyOf>
+	</Item>
+	<Item>
+		<Name>Shield</Name>
+		<Description>An old wooden shield.</Description>
+		<Location>Butler</Location>
+		<Type>ARMOUR</Type>
+		<MinValue>1</MinValue>
+		<MaxValue>3</MaxValue>
+		<KeyOf></KeyOf>
+	</Item>
+</Items>

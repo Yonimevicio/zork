@@ -86,5 +86,8 @@
     <Xml Include="defaultExits.xml">
       <Filter>Resources</Filter>
     </Xml>
+    <Xml Include="defaultCreatures.xml">
+      <Filter>Resources</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

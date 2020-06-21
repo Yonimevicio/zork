@@ -27,14 +27,8 @@ char * World::ReadFile(string name) {
 	
 }
 void World::LoadRoomsFromFile(string roomFile) {	
-	
 	xml_document<> doc;
-	char* fileContent = ReadFile(roomFile);
-	string s = fileContent;
-	int i = s.find_last_of("oms>");
-	s.erase(s.begin() + i + 1, s.end());
-	strcpy(fileContent, s.c_str());
-	doc.parse<0>(fileContent);
+	doc.parse<0>(GetXmlDocumentText(roomFile, "Rooms"));
 	xml_node<> *node = doc.first_node("Rooms");
 	for (xml_node<> *subNode = node->first_node("Room");
 		subNode; subNode = subNode->next_sibling())
@@ -46,12 +40,7 @@ void World::LoadRoomsFromFile(string roomFile) {
 }
 void World::LoadExitsFromFile(string exitFile) {
 	xml_document<> doc;
-	char* fileContent = ReadFile(exitFile);
-	string s = fileContent;
-	int i = s.find_last_of("Exits>");
-	s.erase(s.begin() + i + 1, s.end());
-	strcpy(fileContent, s.c_str());
-	doc.parse<0>(fileContent);
+	doc.parse<0>(GetXmlDocumentText(exitFile, "Exits"));
 	xml_node<> *node = doc.first_node("Exits");
 	for (xml_node<> *subNode = node->first_node("Exit");
 		subNode; subNode = subNode->next_sibling())
@@ -63,23 +52,75 @@ void World::LoadExitsFromFile(string exitFile) {
 		char* exitDestination = subNode->first_node("Destination")->value();
 		char* exitOneWay = subNode->first_node("OneWay")->value();
 		char* exitLocked = subNode->first_node("Locked")->value();
-		Room* origin = SearchRoom(exitOrigin);
-		Room* destination = SearchRoom(exitDestination);
+		Room* origin = (Room*)SearchEntity(exitOrigin);
+		Room* destination = (Room*)SearchEntity(exitDestination);
 		Exit* ex = new Exit(exitName, exitOpName, exitDesc, origin, destination);
 		if (exitLocked == "1") ex->locked = true;
 		entities.push_back(ex);
 	}
 }
-Room* World::SearchRoom(string name) {
+void World::LoadCreaturesFromFile(string creaturesFile) {
+	xml_document<> doc;
+	doc.parse<0>(GetXmlDocumentText(creaturesFile,"Creatures"));
+	xml_node<> *node = doc.first_node("Creatures");
+	for (xml_node<> *subNode = node->first_node("Creature");
+		subNode; subNode = subNode->next_sibling())
+	{
+		char* creatureName = subNode->first_node("Name")->value();
+		char* creatureDesc = subNode->first_node("Description")->value();
+		char* creatureRoom = subNode->first_node("Room")->value();
+		char* creatureHP = subNode->first_node("HP")->value();
+		Room* room = (Room*)SearchEntity(creatureRoom);
+		Creature* cr = new Creature(creatureName, creatureDesc, room);
+		cr->hit_points = 10;
+		entities.push_back(cr);
+	}
+}
+void World::LoadItemsFromFile(string itemsFile) {
+	xml_document<> doc;
+	doc.parse<0>(GetXmlDocumentText(itemsFile, "Items"));
+	xml_node<> *node = doc.first_node("Items");
+	for (xml_node<> *subNode = node->first_node("Item");
+		subNode; subNode = subNode->next_sibling())
+	{
+		char* itemName = subNode->first_node("Name")->value();
+		char* itemDesc = subNode->first_node("Description")->value();
+		char* itemLocation = subNode->first_node("Location")->value();
+		char* itemType = subNode->first_node("Type")->value();
+		char* itemMinValue = subNode->first_node("MinValue")->value();
+		char* itemMaxValue = subNode->first_node("MaxValue")->value();
+		char* keyof = subNode->first_node("KeyOf")->value();
+		Entity* ent = SearchEntity(itemLocation);
+		
+		ItemType itype = COMMON;
+		if (itemType == "WEAPON") itype = WEAPON;
+		if (itemType == "ARMOUR") itype = ARMOUR;
+		Item* item = new Item(itemName, itemDesc, ent, itype);
+		if (itype != COMMON) {
+			item->max_value = atoi(itemMaxValue);
+			item->min_value = atoi(itemMinValue);
+		}
+		
+		entities.push_back(item);
+	}
+}
+char* World::GetXmlDocumentText(string fileName, string mainTag) {
+	char* fileContent = ReadFile(fileName);
+	string s = fileContent;
+	int i = s.find_last_of(mainTag + ">");
+	s.erase(s.begin() + i + 1, s.end());
+	strcpy(fileContent, s.c_str());
+	return fileContent;
+}
+Entity* World::SearchEntity(string name) {
 	for (list<Entity*>::const_iterator it = entities.begin(); it != entities.cend(); ++it)
 	{
-		if ((*it)->type == ROOM)
-		{
-			if (Same((*it)->name, name))
-				return (Room*)(*it);
+		if (Same((*it)->name, name)) {
+			if ((*it)->type == ROOM) return (Room*)(*it);
+			if ((*it)->type == CREATURE) return (Creature*)(*it);
+			if ((*it)->type == ITEM) return (Item*)(*it);
 		}
 	}
-
 	return NULL;
 }
 // ----------------------------------------------------
@@ -89,13 +130,15 @@ World::World()
 
 	// Rooms ----
 	LoadRoomsFromFile("defaultRooms.xml");
-	Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
+	/*Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
 	Room* house = new Room("House", "You are inside a beautiful but small white house.");
-	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");
+	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");*/
 	LoadExitsFromFile("defaultExits.xml");
-	Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
+	LoadCreaturesFromFile("defaultCreatures.xml");
+	LoadItemsFromFile("defaultItems.xml");
+	/*Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
 	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
-	ex2->locked = true;
+	ex2->locked = true;*/
 
 	/*entities.push_back(forest);
 	entities.push_back(house);
@@ -105,31 +148,31 @@ World::World()
 	entities.push_back(ex2);
 */
 	// Creatures ----
-	Creature* butler = new Creature("Butler", "It's James, the house Butler.", house);
-	butler->hit_points = 10;
+	//Creature* butler = new Creature("Butler", "It's James, the house Butler.", house);
+	//butler->hit_points = 10;
 
-	entities.push_back(butler);
+	//entities.push_back(butler);
 
-	// Items -----
-	Item* mailbox = new Item("Mailbox", "Looks like it might contain something.", house);
-	Item* key = new Item("Key", "Old iron key.", mailbox);
+	//// Items -----
+	//Item* mailbox = new Item("Mailbox", "Looks like it might contain something.", house);
+	//Item* key = new Item("Key", "Old iron key.", mailbox);
 	//ex2->key = key;
 
-	Item* sword = new Item("Sword", "A simple old and rusty sword.", forest, WEAPON);
-	sword->min_value = 2;
-	sword->max_value = 6;
+	//Item* sword = new Item("Sword", "A simple old and rusty sword.", forest, WEAPON);
+	//sword->min_value = 2;
+	//sword->max_value = 6;
 
-	Item* sword2(sword);
-	sword2->parent = butler;
+	//Item* sword2(sword);
+	//sword2->parent = butler;
 
-	Item* shield = new Item("Shield", "An old wooden shield.", butler, ARMOUR);
-	shield->min_value = 1;
-	shield->max_value = 3;
-	butler->AutoEquip();
+	//Item* shield = new Item("Shield", "An old wooden shield.", butler, ARMOUR);
+	//shield->min_value = 1;
+	//shield->max_value = 3;
+	//butler->AutoEquip();
 
-	entities.push_back(mailbox);
-	entities.push_back(sword);
-	entities.push_back(shield);
+	//entities.push_back(mailbox);
+	//entities.push_back(sword);
+	//entities.push_back(shield);
 
 	// Player ----
 	player = new Player("Hero", "You are an awesome adventurer!", forest);

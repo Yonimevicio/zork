@@ -106,6 +106,7 @@
     <Xml Include="defaultRooms.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="defaultCreatures.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -29,7 +29,10 @@ private:
 	char* ReadFile(string name);
 	void LoadRoomsFromFile(string roomFile);
 	void LoadExitsFromFile(string exitFile);
-	Room* SearchRoom(string name);
+	void LoadCreaturesFromFile(string creaturesFile);
+	void LoadItemsFromFile(string itemsFile);
+	char* GetXmlDocumentText(string fileName, string mainTag);
+	Entity* SearchEntity(string name);
 	clock_t tick_timer;
 	list<Entity*> entities;
 	Player* player;
