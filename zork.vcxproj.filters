@@ -89,5 +89,11 @@
     <Xml Include="defaultCreatures.xml">
       <Filter>Resources</Filter>
     </Xml>
+    <Xml Include="defaultItems.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="defaultRoles.xml">
+      <Filter>Resources</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

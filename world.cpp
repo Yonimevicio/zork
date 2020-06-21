@@ -104,6 +104,22 @@ void World::LoadItemsFromFile(string itemsFile) {
 		entities.push_back(item);
 	}
 }
+void World::LoadRoleSettingsFromFile(string playerFile) {
+	xml_document<> doc;
+	doc.parse<0>(GetXmlDocumentText(playerFile, "Roles"));
+	xml_node<> *node = doc.first_node("Roles");
+	for (xml_node<> *subNode = node->first_node("Role");
+		subNode; subNode = subNode->next_sibling())
+	{
+		char* roleName = subNode->first_node("Name")->value();
+		char* roleHP = subNode->first_node("HitPoints")->value();
+		char* roleDescription = subNode->first_node("Description")->value();
+		Room* room = (Room*)SearchEntity("Forest");
+		Player* pl = new Player(roleName, roleDescription, room);
+		pl->hit_points = atoi(roleHP);
+		availableRols.push_back(pl);
+	}
+}
 char* World::GetXmlDocumentText(string fileName, string mainTag) {
 	char* fileContent = ReadFile(fileName);
 	string s = fileContent;
@@ -112,6 +128,7 @@ char* World::GetXmlDocumentText(string fileName, string mainTag) {
 	strcpy(fileContent, s.c_str());
 	return fileContent;
 }
+
 Entity* World::SearchEntity(string name) {
 	for (list<Entity*>::const_iterator it = entities.begin(); it != entities.cend(); ++it)
 	{
@@ -136,6 +153,7 @@ World::World()
 	LoadExitsFromFile("defaultExits.xml");
 	LoadCreaturesFromFile("defaultCreatures.xml");
 	LoadItemsFromFile("defaultItems.xml");
+	LoadRoleSettingsFromFile("defaultRoles.xml");
 	/*Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
 	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
 	ex2->locked = true;*/

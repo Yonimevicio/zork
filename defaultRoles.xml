@@ -1,0 +1,22 @@
+<Roles>
+	<Role>
+		<Name>Warrior</Name>
+		<HitPoints>50</HitPoints>
+		<Description>A battle-hardened warrior with great stamina and forceful blows</Description>
+	</Role>
+	<Role>
+		<Name>Rogue</Name>
+		<HitPoints>20</HitPoints>
+		<Descripcion>Treacherous and cheat who uses his abilities to attack from the shadows</Descripcion>
+	</Role>
+	<Role>
+		<Name>Drunk Fighter</Name>
+		<HitPoints>30</HitPoints>
+		<Descripcion>Master of alcohol his attacks are erratic but lethal</Descripcion>
+	</Role>
+	<Role>
+		<Name>Elder Drowsy</Name>
+		<HitPoints>35</HitPoints>
+		<Descripcion>Their diet is based on diazepam. Don't be offended if he falls asleep while fighting him.</Descripcion>
+	</Role>
+</Roles>

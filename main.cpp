@@ -9,7 +9,6 @@ using namespace std;
 
 #define BACKSPACE "\033[D\033[K"     
 
-
 // -------------------------------------------------
 int main()
 {
@@ -17,11 +16,36 @@ int main()
 	string player_input;
 	vector<string> args;
 	args.reserve(10);
-
+	World my_world;
 	cout << Cyan_ "Welcome to MyZork!\n" _Cyan;
 	cout << "----------------\n";
-
-	World my_world;
+	cout << "You are sleeping peacefully when suddenly you notice that something is slapping your face.\n";
+	cout << "You wake up but there's nobody.\n";
+	cout << "Have you dreamed something strange, what have you dreamed of?\n";
+	bool selected = false;
+	Player* player;
+	while (!selected) {
+		cout << "1 -> I was very hunk and wore giant armor " Red_ "Warrior"  _Red "\n";
+		cout << "2 -> I had someone around the neck with a knife " Yellow_ "Rogue"  _Yellow "\n";
+		cout << "3 -> It was all very blurry and I couldn't walk straight " Green_ "Drunk Fighter"  _Green "\n";
+		cout << "4 -> Was I sleeping inside the dream? " Blue_ "Elder Drowsy"  _Blue "\n";
+		int i = 0;
+		cin >> i;
+		switch (i)
+		{
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		default:
+			break;
+		}
+	}
+	
 
 	args.push_back("look");
 

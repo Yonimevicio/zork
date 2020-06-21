@@ -22,8 +22,8 @@ public :
 	bool Tick(vector<string>& args);
 	bool ParseCommand(vector<string>& args);
 	void GameLoop();
-	
-	
+	list<Player*> availableRols;
+	Player* player;
 
 private:
 	char* ReadFile(string name);
@@ -31,11 +31,11 @@ private:
 	void LoadExitsFromFile(string exitFile);
 	void LoadCreaturesFromFile(string creaturesFile);
 	void LoadItemsFromFile(string itemsFile);
+	void LoadRoleSettingsFromFile(string playerFile);
 	char* GetXmlDocumentText(string fileName, string mainTag);
 	Entity* SearchEntity(string name);
 	clock_t tick_timer;
 	list<Entity*> entities;
-	Player* player;
 };
 
 #endif //__World__
