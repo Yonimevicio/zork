@@ -271,7 +271,7 @@ bool Player::Attack(const vector<string>& args)
 		cout << "\n" << args[1] << " is not here.";
 		return false;
 	}
-
+	firstAttack = true;
 	combat_target = target;
 	cout << "\nYou jump to attack " << target->name << "!\n";
 	return true;

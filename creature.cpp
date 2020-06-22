@@ -315,9 +315,16 @@ int Creature::MakeAttack()
 	}
 
 	int result = (weapon) ? weapon->GetValue() : Roll(min_damage, max_damage);
+	int extraDamage = 0;
+	
+	if (name == "Rogue" && firstAttack) {
+		extraDamage = (combat_target->hit_points * 0.25);
+		firstAttack = false;
+	}
+	result += extraDamage;
 
 	if(PlayerInRoom())
-		cout << name << " attacks " << combat_target->name << " for " << result << "\n";
+		cout << name << " attacks " << combat_target->name << " for " Purple_ << result << _Purple "\n";
 
 	combat_target->ReceiveAttack(result);
 

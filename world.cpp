@@ -92,10 +92,10 @@ void World::LoadItemsFromFile(string itemsFile) {
 		char* itemMaxValue = subNode->first_node("MaxValue")->value();
 		char* keyof = subNode->first_node("KeyOf")->value();
 		Entity* ent = SearchEntity(itemLocation);
-		
 		ItemType itype = COMMON;
-		if (itemType == "WEAPON") itype = WEAPON;
-		if (itemType == "ARMOUR") itype = ARMOUR;
+		string strType = itemType;
+		if (strType == "WEAPON") itype = WEAPON;
+		if (strType == "ARMOUR") itype = ARMOUR;
 		Item* item = new Item(itemName, itemDesc, ent, itype);
 		if (itype != COMMON) {
 			item->max_value = atoi(itemMaxValue);
