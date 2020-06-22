@@ -37,7 +37,6 @@ public:
 	Room* GetRoom() const;
 	bool PlayerInRoom() const;
 	bool IsAlive() const;
-
 public :
 
 	int hit_points;

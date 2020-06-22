@@ -73,7 +73,7 @@ void World::LoadCreaturesFromFile(string creaturesFile) {
 		char* creatureHP = subNode->first_node("HP")->value();
 		Room* room = (Room*)SearchEntity(creatureRoom);
 		Creature* cr = new Creature(creatureName, creatureDesc, room);
-		cr->hit_points = 10;
+		cr->hit_points = atoi(creatureHP);
 		entities.push_back(cr);
 	}
 }

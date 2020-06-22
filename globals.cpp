@@ -37,3 +37,10 @@ void Tokenize(const string& line, vector<string>& arguments)
 		arguments.push_back(string(begin, str));
 	} while(0 != *str++);
 }
+string GetColoredName(string crName) {
+	if (crName == "Warrior") return Red_ + crName + _Red;
+	else if (crName == "Rogue") return Yellow_ + crName + _Yellow;
+	else if (crName == "Drunk Fighter") return Green_ + crName + _Green;
+	else if (crName == "Elder Drowsy") return Blue_ + crName + _Blue;
+	else return Cyan_ + crName + _Cyan;
+}
