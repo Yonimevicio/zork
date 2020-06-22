@@ -32,6 +32,7 @@ private:
 	void LoadCreaturesFromFile(string creaturesFile);
 	void LoadItemsFromFile(string itemsFile);
 	void LoadRoleSettingsFromFile(string playerFile);
+	void AutoEquipCreatures();
 	char* GetXmlDocumentText(string fileName, string mainTag);
 	Entity* SearchEntity(string name);
 	clock_t tick_timer;

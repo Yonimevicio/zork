@@ -1,7 +1,7 @@
 <Roles>
 	<Role>
 		<Name>Warrior</Name>
-		<HitPoints>50</HitPoints>
+		<HitPoints>40</HitPoints>
 		<Description>A battle-hardened warrior with great stamina and forceful blows</Description>
 	</Role>
 	<Role>
@@ -16,7 +16,7 @@
 	</Role>
 	<Role>
 		<Name>Elder Drowsy</Name>
-		<HitPoints>35</HitPoints>
+		<HitPoints>30</HitPoints>
 		<Description>Their diet is based on diazepam. Don't be offended if he falls asleep while fighting him.</Description>
 	</Role>
 </Roles>

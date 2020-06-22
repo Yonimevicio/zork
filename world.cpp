@@ -121,6 +121,11 @@ void World::LoadRoleSettingsFromFile(string playerFile) {
 		availableRols.push_back(pl);
 	}
 }
+void World::AutoEquipCreatures() {
+	for (list<Entity*>::const_iterator it = entities.begin(); it != entities.cend(); ++it) {
+			if ((*it)->type == CREATURE) ((Creature*)(*it))->AutoEquip();
+	}
+}
 char* World::GetXmlDocumentText(string fileName, string mainTag) {
 	char* fileContent = ReadFile(fileName);
 	string s = fileContent;
@@ -175,7 +180,7 @@ World::World()
 	LoadCreaturesFromFile("defaultCreatures.xml");
 	LoadItemsFromFile("defaultItems.xml");
 	LoadRoleSettingsFromFile("defaultRoles.xml");
-
+	AutoEquipCreatures();
 	/*Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
 	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
 	ex2->locked = true;*/

@@ -313,12 +313,21 @@ int Creature::MakeAttack()
 		combat_target = combat_target->combat_target = NULL;
 		return false;
 	}
-
-	int result = (weapon) ? weapon->GetValue() : Roll(min_damage, max_damage);
+	int extraMinDamage = 0;
+	if (name == "Warrior") {
+		extraMinDamage = 1;
+	}
+	int result = (weapon) ? weapon->GetValue() : Roll(min_damage + extraMinDamage, max_damage);
 	int extraDamage = 0;
 	if (name == "Rogue" && firstAttack) {
 		extraDamage = (combat_target->hit_points * 0.25);
 		firstAttack = false;
+	}
+	if (name == "Drunk Fighter") {
+		result = (weapon) ? weapon->GetValue() : Roll(min_damage + extraMinDamage, max_damage) * 2 * Roll(0 , 1);
+	}
+	if (name == "Elder Drowsy") {
+	
 	}
 	
 	result += extraDamage;

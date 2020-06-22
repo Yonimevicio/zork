@@ -27,6 +27,15 @@
 		<KeyOf></KeyOf>
 	</Item>
 	<Item>
+		<Name>Dagger</Name>
+		<Description>A simple old and rusty dagger.</Description>
+		<Location>Butler</Location>
+		<Type>WEAPON</Type>
+		<MinValue>1</MinValue>
+		<MaxValue>3</MaxValue>
+		<KeyOf></KeyOf>
+	</Item>
+	<Item>
 		<Name>Shield</Name>
 		<Description>An old wooden shield.</Description>
 		<Location>Butler</Location>
