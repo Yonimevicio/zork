@@ -24,7 +24,7 @@ public :
 	void GameLoop();
 	list<Player*> availableRols;
 	Player* player;
-
+	bool World::RoleMessage(string rolename);
 private:
 	char* ReadFile(string name);
 	void LoadRoomsFromFile(string roomFile);

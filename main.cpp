@@ -23,7 +23,6 @@ int main()
 	cout << "You wake up but there's nobody.\n";
 	cout << "Have you dreamed something strange, what have you dreamed of?\n";
 	bool selected = false;
-	Player* player;
 	while (!selected) {
 		cout << "1 -> I was very hunk and wore giant armor " Red_ "Warrior"  _Red "\n";
 		cout << "2 -> I had someone around the neck with a knife " Yellow_ "Rogue"  _Yellow "\n";
@@ -31,17 +30,22 @@ int main()
 		cout << "4 -> Was I sleeping inside the dream? " Blue_ "Elder Drowsy"  _Blue "\n";
 		int i = 0;
 		cin >> i;
-		switch (i)
+		switch (i) 
 		{
 		case 1:
+			selected = my_world.RoleMessage("Warrior");
 			break;
 		case 2:
+			selected = my_world.RoleMessage("Rogue");
 			break;
 		case 3:
+			selected = my_world.RoleMessage("Drunk Fighter");
 			break;
 		case 4:
+			selected = my_world.RoleMessage("Elder Drowsy");
 			break;
 		default:
+			selected = my_world.RoleMessage("");
 			break;
 		}
 	}

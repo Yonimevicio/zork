@@ -12,6 +12,7 @@
 #include "rapidxml_print.hpp"
 #include "rapidxml_utils.hpp"
 #include <algorithm> 
+#include <string> 
 using namespace rapidxml;
 char * World::ReadFile(string name) {
 	ifstream file;
@@ -128,7 +129,27 @@ char* World::GetXmlDocumentText(string fileName, string mainTag) {
 	strcpy(fileContent, s.c_str());
 	return fileContent;
 }
+bool World::RoleMessage(string rolename) {
+	for (list<Player*>::const_iterator it = availableRols.begin(); it != availableRols.cend(); ++it)
+	{
+		if (Same((*it)->name, rolename)) {
+			cout << rolename + "\n";
+			cout << (*it)->description + "\n";
+			string hp = to_string((*it)->hit_points);
+			cout << "Hitpoints: " +  hp  + "\n" ;
+			cout << "Are you sure you dreamed this? y/n \n";
+			char sure;
+			cin >> sure;
+			if (sure == 'y') {
+				player = (*it);
+				entities.push_back(player);
+				return true;
+			}
+			else return false;
+		}
 
+	}
+}
 Entity* World::SearchEntity(string name) {
 	for (list<Entity*>::const_iterator it = entities.begin(); it != entities.cend(); ++it)
 	{
@@ -154,6 +175,7 @@ World::World()
 	LoadCreaturesFromFile("defaultCreatures.xml");
 	LoadItemsFromFile("defaultItems.xml");
 	LoadRoleSettingsFromFile("defaultRoles.xml");
+
 	/*Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
 	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
 	ex2->locked = true;*/
@@ -193,9 +215,9 @@ World::World()
 	//entities.push_back(shield);
 
 	// Player ----
-	player = new Player("Hero", "You are an awesome adventurer!", forest);
+	/*player = new Player("Hero", "You are an awesome adventurer!", forest);
 	player->hit_points = 25;
-	entities.push_back(player);
+	entities.push_back(player);*/
 }
 
 // ----------------------------------------------------
