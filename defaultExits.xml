@@ -15,6 +15,6 @@
 		<Origin>House</Origin>
 		<Destination>Basement</Destination>
 		<OneWay>0</OneWay>
-		<Locked>0</Locked>
+		<Locked>1</Locked>
 	</Exit>
 </Exits>

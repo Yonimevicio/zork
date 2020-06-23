@@ -56,7 +56,8 @@ void World::LoadExitsFromFile(string exitFile) {
 		Room* origin = (Room*)SearchEntity(exitOrigin);
 		Room* destination = (Room*)SearchEntity(exitDestination);
 		Exit* ex = new Exit(exitName, exitOpName, exitDesc, origin, destination);
-		if (exitLocked == "1") ex->locked = true;
+		string eLStr = exitLocked;
+		if (eLStr == "1") ex->locked = true;
 		entities.push_back(ex);
 	}
 }
@@ -101,7 +102,8 @@ void World::LoadItemsFromFile(string itemsFile) {
 			item->max_value = atoi(itemMaxValue);
 			item->min_value = atoi(itemMinValue);
 		}
-		
+		Entity* entLocked = SearchEntity(keyof);
+		if (entLocked != NULL)((Exit*)entLocked)->key = item;
 		entities.push_back(item);
 	}
 }
@@ -162,7 +164,7 @@ Entity* World::SearchEntity(string name) {
 			if ((*it)->type == ROOM) return (Room*)(*it);
 			if ((*it)->type == CREATURE) return (Creature*)(*it);
 			if ((*it)->type == ITEM) return (Item*)(*it);
-		}
+		}else if (Same((*it)->description, name)) return (Exit*)(*it);
 	}
 	return NULL;
 }

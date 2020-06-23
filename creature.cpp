@@ -327,7 +327,7 @@ int Creature::MakeAttack()
 		result = (weapon) ? weapon->GetValue() : Roll(min_damage + extraMinDamage, max_damage) * 2 * Roll(0 , 1);
 	}
 	if (name == "Elder Drowsy") {
-	
+		 
 	}
 	
 	result += extraDamage;

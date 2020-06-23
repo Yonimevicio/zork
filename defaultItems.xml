@@ -15,7 +15,7 @@
 		<Type></Type>
 		<MinValue></MinValue>
 		<MaxValue></MaxValue>
-		<KeyOf></KeyOf>
+		<KeyOf>Stairs</KeyOf>
 	</Item>
 	<Item>
 		<Name>Sword</Name>

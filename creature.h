@@ -45,6 +45,8 @@ public :
 	int min_protection;
 	int max_protection;
 	bool firstAttack;
+	int sleepCounter = -50;
+	int sleepTurns = 0;
 	Creature* combat_target;
 	Item* weapon;
 	Item* armour;
