@@ -326,17 +326,27 @@ int Creature::MakeAttack()
 	if (name == "Drunk Fighter") {
 		result = (weapon) ? weapon->GetValue() : Roll(min_damage + extraMinDamage, max_damage) * 2 * Roll(0 , 1);
 	}
-	if (name == "Elder Drowsy") {
-		 
-	}
+
 	
 	result += extraDamage;
+	if (name == "Elder Drowsy") {
+		if (sleepTurns > 0) { 
+			result = 0;
+			cout << GetColoredName(name) << " is asleep for " Purple_ << result << "turns" _Purple "\n";
+			sleepTurns--; 
+		}
+		else {
+			if (Roll(sleepCounter, 100) == 100) sleepTurns = Roll(1, 4);
+			sleepCounter += 10;
+		}
+		
+	}
+	else {
+		if (PlayerInRoom())
+			cout << GetColoredName(name) << " attacks " << GetColoredName(combat_target->name) << " for " Purple_ << result << _Purple "\n";
 
-	if(PlayerInRoom())
-		cout << GetColoredName(name) << " attacks " << GetColoredName(combat_target->name) << " for " Purple_ << result << _Purple "\n";
-
-	combat_target->ReceiveAttack(result);
-
+		combat_target->ReceiveAttack(result);
+	}
 	// make the attacker react and take me as a target
 	if(combat_target->combat_target == NULL)
 		combat_target->combat_target = this;

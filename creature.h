@@ -47,6 +47,7 @@ public :
 	bool firstAttack;
 	int sleepCounter = -50;
 	int sleepTurns = 0;
+	int maxHitpoints;
 	Creature* combat_target;
 	Item* weapon;
 	Item* armour;

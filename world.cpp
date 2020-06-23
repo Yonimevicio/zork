@@ -149,6 +149,7 @@ bool World::RoleMessage(string rolename) {
 			cin >> sure;
 			if (sure == 'y') {
 				player = (*it);
+				player->maxHitpoints = player->hit_points;
 				entities.push_back(player);
 				return true;
 			}
