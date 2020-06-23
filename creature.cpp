@@ -332,21 +332,27 @@ int Creature::MakeAttack()
 	if (name == "Elder Drowsy") {
 		if (sleepTurns > 0) { 
 			result = 0;
-			cout << GetColoredName(name) << " is asleep for " Purple_ << result << "turns" _Purple "\n";
-			sleepTurns--; 
+			cout << GetColoredName(name) << " is asleep for " Purple_ << sleepTurns << " turns" _Purple "\n";
+
 		}
 		else {
-			if (Roll(sleepCounter, 100) == 100) sleepTurns = Roll(1, 4);
-			sleepCounter += 10;
+			if ((sleepCounter >= 100) || (Roll(sleepCounter, 100) == 100)) {
+				sleepTurns = Roll(2, 6);
+				sleepCounter = 0;
+				hit_points = maxHitpoints;
+			}
+			else sleepCounter += 30;
 		}
+
 		
 	}
-	else {
+	if (sleepTurns == 0) {
 		if (PlayerInRoom())
 			cout << GetColoredName(name) << " attacks " << GetColoredName(combat_target->name) << " for " Purple_ << result << _Purple "\n";
 
 		combat_target->ReceiveAttack(result);
-	}
+	}else 	sleepTurns--;
+	
 	// make the attacker react and take me as a target
 	if(combat_target->combat_target == NULL)
 		combat_target->combat_target = this;

@@ -272,7 +272,7 @@ bool Player::Attack(const vector<string>& args)
 		return false;
 	}
 	firstAttack = true;
-	sleepCounter = -50;
+	sleepCounter = 0;
 	combat_target = target;
 	cout << "\nYou jump to attack " << target->name << "!\n";
 	return true;

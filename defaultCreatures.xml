@@ -3,6 +3,6 @@
 		<Name>Butler</Name>
 		<Description>It's James, the house Butler.</Description>
 		<Room>House</Room>
-		<HP>15</HP>
+		<HP>20</HP>
 	</Creature>
 </Creatures>
