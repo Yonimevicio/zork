@@ -45,6 +45,28 @@
     <Locked>1</Locked>
   </Exit>
   <Exit>
+    <Name>trapdoor</Name>
+    <OppositeName>down</OppositeName>
+    <Description>
+      It's very weak only by looking at it could crumble. Maybe you can unlock it by force.
+    </Description>
+    <Origin>The Armory</Origin>
+    <Destination>The Hallway</Destination>
+    <OneWay>0</OneWay>
+    <Locked>0</Locked>
+  </Exit>
+  <Exit>
+    <Name>golden_door</Name>
+    <OppositeName>golden_door</OppositeName>
+    <Description>
+      Your head hurts so bad, everything past this point feels blurry. You look back and see no door. Just the princess room
+    </Description>
+    <Origin>The Hallway</Origin>
+    <Destination>The Princess Room</Destination>
+    <OneWay>1</OneWay>
+    <Locked>0</Locked>
+  </Exit>
+  <Exit>
     <Name>west</Name>
     <OppositeName>east</OppositeName>
     <Description>There is someone in there, but you can't apreciate it.</Description>
@@ -68,7 +90,7 @@
     <Description>You can see light at the end of a big hole</Description>
     <Origin>The Laberinth</Origin>
     <Destination>The Forbidden Tree</Destination>
-    <OneWay>1</OneWay>
+    <OneWay>0</OneWay>
     <Locked>0</Locked>
   </Exit>
   

@@ -101,11 +101,41 @@
   </Item>
   <Item>
     <Name>Wardrobe</Name>
-    <Description>A simple steel sword.</Description>
-    <Location>Left_guard</Location>
-    <Type>WEAPON</Type>
-    <MinValue>2</MinValue>
-    <MaxValue>5</MaxValue>
+    <Description>Has plenty of dresses, heels and armors. From all of those one shines more than any, the HQ_dress.</Description>
+    <Location>The Armory</Location>
+    <Type></Type>
+    <MinValue></MinValue>
+    <MaxValue></MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  <Item>
+    <Name>HQ_dress</Name>
+    <Description>This dress is kinda of embarrassing on you, but the stats are too good to pass on them.</Description>
+    <Location>Wardrobe</Location>
+    <Type>ARMOR</Type>
+    <MinValue>4</MinValue>
+    <MaxValue>6</MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  <Item>
+    <Name>Picture</Name>
+    <Description>Everytime you look at the princess face or the apple, your head hurt. As if you were about to remember something.</Description>
+    <Location>The Armory</Location>
+    <Type></Type>
+    <MinValue></MinValue>
+    <MaxValue></MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  <Item>
+    <Name>Mirror</Name>
+    <Description>
+      Finally has arrived your moment. You extend your hand to the princess, and as you were about to touch her she banishes. You look at yourself in the mirror, and it's you
+      but you are biting the apple. Your consciousness blurs, you are falling asleep. In your lasts moments awake you can see your body in the woods slept, with a note in your hand.
+    </Description>
+    <Location>The Princess Room</Location>
+    <Type></Type>
+    <MinValue></MinValue>
+    <MaxValue></MaxValue>
     <KeyOf></KeyOf>
   </Item>
   

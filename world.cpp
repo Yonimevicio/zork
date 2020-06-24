@@ -176,14 +176,14 @@ World::World()
 	tick_timer = clock();
 
 	// Rooms ----
-	LoadRoomsFromFile("defaultRooms.xml");
+	LoadRoomsFromFile("./defaultRooms.xml");
 	/*Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
 	Room* house = new Room("House", "You are inside a beautiful but small white house.");
 	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");*/
-	LoadExitsFromFile("defaultExits.xml");
-	LoadCreaturesFromFile("defaultCreatures.xml");
-	LoadItemsFromFile("defaultItems.xml");
-	LoadRoleSettingsFromFile("defaultRoles.xml");
+	LoadExitsFromFile("./defaultExits.xml");
+	LoadCreaturesFromFile("./defaultCreatures.xml");
+	LoadItemsFromFile("./defaultItems.xml");
+	LoadRoleSettingsFromFile("./defaultRoles.xml");
 	AutoEquipCreatures();
 
 }

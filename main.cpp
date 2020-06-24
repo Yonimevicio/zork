@@ -80,7 +80,10 @@ int main()
 
 		if(args.size() > 0 && Same(args[0], "quit"))
 			break;
-
+		if (args.size() > 1 && Same(args[0], "look") && Same(args[1], "mirror")) {
+			cout << "\n Congratulations you have finished this demo, we hope you liked it" << "\n";
+			break;
+		}
 		if(my_world.Tick(args) == false)
 			cout << "\nSorry, I do not understand your command.\n";
 
