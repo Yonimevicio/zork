@@ -10,11 +10,17 @@ This game is a basic text adventure, it works through a console, it doesn't have
 You can find the code for this game here: https://github.com/Yonimevicio/zork
 # Command list
 look "item name, creature name or exit name" (you can use look without arguments to see where u are)
+
 examine "item name, creature name"
+
 unlock "exit name"
+
 attack "creature name"
+
 equip "item name"
+
 take "item name" (optional) from "place"
+
 go "exit name"
 
 
