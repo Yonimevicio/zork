@@ -57,7 +57,9 @@ void World::LoadExitsFromFile(string exitFile) {
 		Room* destination = (Room*)SearchEntity(exitDestination);
 		Exit* ex = new Exit(exitName, exitOpName, exitDesc, origin, destination);
 		string eLStr = exitLocked;
+		string eOStr = exitOneWay;
 		if (eLStr == "1") ex->locked = true;
+		if (eOStr == "1") ex->one_way = true;
 		entities.push_back(ex);
 	}
 }
@@ -117,7 +119,7 @@ void World::LoadRoleSettingsFromFile(string playerFile) {
 		char* roleName = subNode->first_node("Name")->value();
 		char* roleHP = subNode->first_node("HitPoints")->value();
 		char* roleDescription = subNode->first_node("Description")->value();
-		Room* room = (Room*)SearchEntity("Forest");
+		Room* room = (Room*)SearchEntity("The Woods");
 		Player* pl = new Player(roleName, roleDescription, room);
 		pl->hit_points = atoi(roleHP);
 		availableRols.push_back(pl);
@@ -184,48 +186,7 @@ World::World()
 	LoadItemsFromFile("defaultItems.xml");
 	LoadRoleSettingsFromFile("defaultRoles.xml");
 	AutoEquipCreatures();
-	/*Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
-	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
-	ex2->locked = true;*/
 
-	/*entities.push_back(forest);
-	entities.push_back(house);
-	entities.push_back(basement);
-
-	entities.push_back(ex1);
-	entities.push_back(ex2);
-*/
-	// Creatures ----
-	//Creature* butler = new Creature("Butler", "It's James, the house Butler.", house);
-	//butler->hit_points = 10;
-
-	//entities.push_back(butler);
-
-	//// Items -----
-	//Item* mailbox = new Item("Mailbox", "Looks like it might contain something.", house);
-	//Item* key = new Item("Key", "Old iron key.", mailbox);
-	//ex2->key = key;
-
-	//Item* sword = new Item("Sword", "A simple old and rusty sword.", forest, WEAPON);
-	//sword->min_value = 2;
-	//sword->max_value = 6;
-
-	//Item* sword2(sword);
-	//sword2->parent = butler;
-
-	//Item* shield = new Item("Shield", "An old wooden shield.", butler, ARMOUR);
-	//shield->min_value = 1;
-	//shield->max_value = 3;
-	//butler->AutoEquip();
-
-	//entities.push_back(mailbox);
-	//entities.push_back(sword);
-	//entities.push_back(shield);
-
-	// Player ----
-	/*player = new Player("Hero", "You are an awesome adventurer!", forest);
-	player->hit_points = 25;
-	entities.push_back(player);*/
 }
 
 // ----------------------------------------------------

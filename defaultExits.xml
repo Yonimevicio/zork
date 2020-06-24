@@ -1,20 +1,57 @@
 <Exits>
 	<Exit>
-		<Name>west</Name>
-		<OppositeName>east</OppositeName>
-		<Description>Little path</Description>
-		<Origin>House</Origin>
-		<Destination>Forest</Destination>
-		<OneWay>0</OneWay>
-		<Locked>0</Locked>
-	</Exit>
-	<Exit>
-		<Name>down</Name>
-		<OppositeName>up</OppositeName>
-		<Description>Stairs</Description>
-		<Origin>House</Origin>
-		<Destination>Basement</Destination>
-		<OneWay>0</OneWay>
+		<Name>north</Name>
+		<OppositeName>south</OppositeName>
+		<Description>You see from a far a tower and a fontain</Description>
+		<Origin>The Woods</Origin>
+		<Destination>The Fountain</Destination>
+		<OneWay>1</OneWay>
 		<Locked>1</Locked>
 	</Exit>
+  <Exit>
+    <Name>east</Name>
+    <OppositeName>west</OppositeName>
+    <Description>You see two guards and multiple ways to go, you even see a tree with one apple.</Description>
+    <Origin>The Fountain</Origin>
+    <Destination>The Laberinth</Destination>
+    <OneWay>0</OneWay>
+    <Locked>0</Locked>
+  </Exit>
+  <Exit>
+    <Name>north</Name>
+    <OppositeName>south</OppositeName>
+    <Description>There is guard, he doesn't let you pass unless you bring food. Also looks like he could overpower you easily.</Description>
+    <Origin>The Fountain</Origin>
+    <Destination>The Tower</Destination>
+    <OneWay>0</OneWay>
+    <Locked>0</Locked>
+  </Exit>
+  <Exit>
+    <Name>west</Name>
+    <OppositeName>east</OppositeName>
+    <Description>There is someone in there, but you can't apreciate it.</Description>
+    <Origin>The Fountain</Origin>
+    <Destination>The Garden</Destination>
+    <OneWay>0</OneWay>
+    <Locked>0</Locked>
+  </Exit>
+  <Exit>
+    <Name>door</Name>
+    <OppositeName>door</OppositeName>
+    <Description>A simple WOOD door</Description>
+    <Origin>The Laberinth</Origin>
+    <Destination>The Woods</Destination>
+    <OneWay>1</OneWay>
+    <Locked>0</Locked>
+  </Exit>
+  <Exit>
+    <Name>den</Name>
+    <OppositeName>outside</OppositeName>
+    <Description>You can see light at the end of a big hole</Description>
+    <Origin>The Laberinth</Origin>
+    <Destination>The Forbidden Tree</Destination>
+    <OneWay>1</OneWay>
+    <Locked>0</Locked>
+  </Exit>
+  
 </Exits>

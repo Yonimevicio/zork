@@ -1,47 +1,56 @@
 <Items>
-	<Item>
-		<Name>Mailbox</Name>
-		<Description>Looks like it might contain something.</Description>
-		<Location>House</Location>
-		<Type></Type>
-		<MinValue></MinValue>
-		<MaxValue></MaxValue>
-		<KeyOf>Stairs</KeyOf>
-	</Item>
-	<Item>
-		<Name>Key</Name>
-		<Description>Old iron key.</Description>
-		<Location>Mailbox</Location>
-		<Type></Type>
-		<MinValue></MinValue>
-		<MaxValue></MaxValue>
-		<KeyOf>Stairs</KeyOf>
-	</Item>
+  <Item>
+    <Name>Papernote</Name>
+    <Description>Congratulations you have been invited to the royal picnic in the tower of the princess.</Description>
+    <Location>The Woods</Location>
+    <Type></Type>
+    <MinValue></MinValue>
+    <MaxValue></MaxValue>
+    <KeyOf>You see from a far a tower and a fontain</KeyOf>
+  </Item>
+  <Item>
+    <Name>Forbbiden_apple</Name>
+    <Description>Only by grabbing it you feel your senses tingle. You feel as if reality bended around it. Are those voices? O are you just dizzy?</Description>
+    <Location>Forbbiden_tree</Location>
+    <Type></Type>
+    <MinValue></MinValue>
+    <MaxValue></MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
 	<Item>
 		<Name>Sword</Name>
 		<Description>A simple old and rusty sword.</Description>
-		<Location>Forest</Location>
+		<Location>The Woods</Location>
 		<Type>WEAPON</Type>
 		<MinValue>2</MinValue>
 		<MaxValue>6</MaxValue>
 		<KeyOf></KeyOf>
 	</Item>
-	<Item>
-		<Name>Dagger</Name>
-		<Description>A simple old and rusty dagger.</Description>
-		<Location>Butler</Location>
-		<Type>WEAPON</Type>
-		<MinValue>1</MinValue>
-		<MaxValue>3</MaxValue>
-		<KeyOf></KeyOf>
-	</Item>
+  <Item>
+    <Name>Broken_bottle</Name>
+    <Description>A simple old and rusty sword.</Description>
+    <Location>Sr_lapiz</Location>
+    <Type>WEAPON</Type>
+    <MinValue>1</MinValue>
+    <MaxValue>4</MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
 	<Item>
 		<Name>Shield</Name>
 		<Description>An old wooden shield.</Description>
-		<Location>Butler</Location>
+		<Location>The Woods</Location>
 		<Type>ARMOUR</Type>
 		<MinValue>1</MinValue>
 		<MaxValue>3</MaxValue>
 		<KeyOf></KeyOf>
 	</Item>
+  <Item>
+    <Name>Combat_armor</Name>
+    <Description>This dress is kinda of embarasing on you, but the stats are too good to pass on them.</Description>
+    <Location>Sr_lapiz</Location>
+    <Type>ARMOUR</Type>
+    <MinValue>2</MinValue>
+    <MaxValue>5</MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
 </Items>

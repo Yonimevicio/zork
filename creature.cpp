@@ -365,9 +365,9 @@ int Creature::ReceiveAttack(int damage)
 {
 	int prot = (armour) ? armour->GetValue() : Roll(min_protection, max_protection);
 	int received = damage - prot;
-
+	if (received < 0) received = 0;
 	hit_points -= received;
-
+	
 	if(PlayerInRoom())
 		cout << name << " is hit for " Red_ << received << " damage " _Red " (" << prot << " blocked) (" Green_ "HP " <<  hit_points  << _Green") \n";
 

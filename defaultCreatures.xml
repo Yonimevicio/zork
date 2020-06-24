@@ -1,8 +1,14 @@
 <Creatures>
-	<Creature>
-		<Name>Butler</Name>
-		<Description>It's James, the house Butler.</Description>
-		<Room>House</Room>
-		<HP>20</HP>
-	</Creature>
+  <Creature>
+    <Name>Forbbiden_tree</Name>
+    <Description>A big tree that have only one apple</Description>
+    <Room>The Forbbiden Tree</Room>
+    <HP>20</HP>
+  </Creature>
+  <Creature>
+    <Name>Sr_lapiz</Name>
+    <Description>Ugh I am so drunk. This wine is good, but nothing compares to the taste of the forbidden apple, only the princess can taste it.</Description>
+    <Room>The Garden</Room>
+    <HP>20</HP>
+  </Creature>
 </Creatures>

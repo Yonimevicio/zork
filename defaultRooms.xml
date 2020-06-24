@@ -1,14 +1,26 @@
 <Rooms>
 	<Room>
-		<Name>Forest</Name>
-		<Description>You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.You are inside a beautiful but small white house.</Description>
+		<Name>The Woods</Name>
+		<Description>You find yourself in the wood, as if you just wake up. You find a paper note by your side.</Description>
 	</Room>
 	<Room>
-		<Name>House</Name>
-		<Description>You are inside a beautiful but small white house.</Description>
+		<Name>The Fountain</Name>
+		<Description>You can see a gigantic fontain with plenty of water, looks pretty amazing.</Description>
 	</Room>
 	<Room>
-		<Name>Basement</Name>
-		<Description>The basement features old furniture and dim light.</Description>
+		<Name>The Garden</Name>
+		<Description>You enter a garden full of flowers and a bench. There is someone there, seems to be a noble.</Description>
 	</Room>
+  <Room>
+    <Name>The Laberinth</Name>
+    <Description>You see two exits (a den and a door) and two guards on each one.</Description>
+  </Room>
+  <Room>
+    <Name>The Tower</Name>
+    <Description></Description>
+  </Room>
+  <Room>
+    <Name>The Forbidden Tree</Name>
+    <Description>There is only one apple on an enormous tree maybe if you attack it an apple can drop</Description>
+  </Room>
 </Rooms>
