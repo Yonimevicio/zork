@@ -55,11 +55,10 @@ void World::LoadExitsFromFile(string exitFile) {
 		char* exitLocked = subNode->first_node("Locked")->value();
 		Room* origin = (Room*)SearchEntity(exitOrigin);
 		Room* destination = (Room*)SearchEntity(exitDestination);
-		Exit* ex = new Exit(exitName, exitOpName, exitDesc, origin, destination);
 		string eLStr = exitLocked;
 		string eOStr = exitOneWay;
+		Exit* ex = new Exit(exitName, exitOpName, exitDesc, origin, destination, eOStr == "1");
 		if (eLStr == "1") ex->locked = true;
-		if (eOStr == "1") ex->one_way = true;
 		entities.push_back(ex);
 	}
 }

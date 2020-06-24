@@ -9,6 +9,15 @@
 		<Locked>1</Locked>
 	</Exit>
   <Exit>
+    <Name>south</Name>
+    <OppositeName>north</OppositeName>
+    <Description>You see the woods</Description>
+    <Origin>The Fountain</Origin>
+    <Destination>The Woods</Destination>
+    <OneWay>1</OneWay>
+    <Locked>1</Locked>
+  </Exit>
+  <Exit>
     <Name>east</Name>
     <OppositeName>west</OppositeName>
     <Description>You see two guards and multiple ways to go, you even see a tree with one apple.</Description>
