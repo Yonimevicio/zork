@@ -29,11 +29,20 @@
   <Exit>
     <Name>north</Name>
     <OppositeName>south</OppositeName>
-    <Description>There is guard, he doesn't let you pass unless you bring food. Also looks like he could overpower you easily.</Description>
+    <Description>There is guard</Description>
     <Origin>The Fountain</Origin>
     <Destination>The Tower</Destination>
     <OneWay>0</OneWay>
     <Locked>0</Locked>
+  </Exit>
+  <Exit>
+    <Name>tower_door</Name>
+    <OppositeName>outside</OppositeName>
+    <Description>The guard doesn't let you pass unless you bring food. Also looks like he could overpower you easily.</Description>
+    <Origin>The Tower</Origin>
+    <Destination>The Armory</Destination>
+    <OneWay>0</OneWay>
+    <Locked>1</Locked>
   </Exit>
   <Exit>
     <Name>west</Name>

@@ -17,10 +17,28 @@
   </Room>
   <Room>
     <Name>The Tower</Name>
-    <Description></Description>
+    <Description>A big tower, almost reaches the skies</Description>
+  </Room>
+  <Room>
+    <Name>The Armory</Name>
+    <Description>
+      You have enter the armory, everything is disorganized. Pictures of the princess holding the apple, mixed with barrels full of weapons. You find a barrel, a wardrobe, a picture
+      and a trapdoor.
+    </Description>
+  </Room>
+  <Room>
+    <Name>The Hallway</Name>
+    <Description>
+      Plenty of curtains fall from the ceiling, there is are luxurious carpets on the floor. You can only go forward, there is a way to the princess room and a pretender to the heir.
+      You can feel your heart-rate rushing.
+    </Description>
+  </Room>
+  <Room>
+    <Name>The Princess_room</Name>
+    <Description>Your legs have started to shake, are you overfelt with emotions or is this an effect of the forbidden apple. You see the princess looking herself at the mirror.</Description>
   </Room>
   <Room>
     <Name>The Forbidden Tree</Name>
-    <Description>There is only one apple on an enormous tree maybe if you attack it an apple can drop</Description>
+    <Description>There is only one apple on an enormous tree, maybe you can take it</Description>
   </Room>
 </Rooms>

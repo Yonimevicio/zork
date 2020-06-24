@@ -8,15 +8,6 @@
     <MaxValue></MaxValue>
     <KeyOf>You see from a far a tower and a fontain</KeyOf>
   </Item>
-  <Item>
-    <Name>Forbbiden_apple</Name>
-    <Description>Only by grabbing it you feel your senses tingle. You feel as if reality bended around it. Are those voices? O are you just dizzy?</Description>
-    <Location>Forbbiden_tree</Location>
-    <Type></Type>
-    <MinValue></MinValue>
-    <MaxValue></MaxValue>
-    <KeyOf></KeyOf>
-  </Item>
 	<Item>
 		<Name>Sword</Name>
 		<Description>A simple old and rusty sword.</Description>
@@ -26,6 +17,25 @@
 		<MaxValue>6</MaxValue>
 		<KeyOf></KeyOf>
 	</Item>
+  <Item>
+    <Name>Forbidden_tree</Name>
+    <Description>A big tree that have only one apple</Description>
+    <Location>The Forbidden Tree</Location>
+    <Type></Type>
+    <MinValue></MinValue>
+    <MaxValue></MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  <Item>
+    <Name>Forbidden_apple</Name>
+    <Description>Only by grabbing it you feel your senses tingle. You feel as if reality bended around it. Are those voices? O are you just dizzy?</Description>
+    <Location>Forbidden_tree</Location>
+    <Type></Type>
+    <MinValue></MinValue>
+    <MaxValue></MaxValue>
+    <KeyOf>The guard doesn't let you pass unless you bring food. Also looks like he could overpower you easily.</KeyOf>
+  </Item>
+
   <Item>
     <Name>Broken_bottle</Name>
     <Description>A simple old and rusty sword.</Description>
@@ -46,11 +56,57 @@
 	</Item>
   <Item>
     <Name>Combat_armor</Name>
-    <Description>This dress is kinda of embarasing on you, but the stats are too good to pass on them.</Description>
+    <Description>Tipical Soldier armor</Description>
     <Location>Sr_lapiz</Location>
     <Type>ARMOUR</Type>
     <MinValue>2</MinValue>
     <MaxValue>5</MaxValue>
     <KeyOf></KeyOf>
   </Item>
+  <Item>
+    <Name>Combat_armor</Name>
+    <Description>Tipical Soldier armor</Description>
+    <Location>Right_guard</Location>
+    <Type>ARMOUR</Type>
+    <MinValue>2</MinValue>
+    <MaxValue>5</MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  <Item>
+    <Name>Combat_armor</Name>
+    <Description>Tipical Soldier armor</Description>
+    <Location>Left_guard</Location>
+    <Type>ARMOUR</Type>
+    <MinValue>2</MinValue>
+    <MaxValue>5</MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  <Item>
+    <Name>Steel_sword</Name>
+    <Description>A simple steel sword.</Description>
+    <Location>Right_guard</Location>
+    <Type>WEAPON</Type>
+    <MinValue>2</MinValue>
+    <MaxValue>5</MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  <Item>
+    <Name>Steel_sword</Name>
+    <Description>A simple steel sword.</Description>
+    <Location>Left_guard</Location>
+    <Type>WEAPON</Type>
+    <MinValue>2</MinValue>
+    <MaxValue>5</MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  <Item>
+    <Name>Wardrobe</Name>
+    <Description>A simple steel sword.</Description>
+    <Location>Left_guard</Location>
+    <Type>WEAPON</Type>
+    <MinValue>2</MinValue>
+    <MaxValue>5</MaxValue>
+    <KeyOf></KeyOf>
+  </Item>
+  
 </Items>

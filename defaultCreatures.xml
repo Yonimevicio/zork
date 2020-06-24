@@ -1,14 +1,21 @@
 <Creatures>
-  <Creature>
-    <Name>Forbbiden_tree</Name>
-    <Description>A big tree that have only one apple</Description>
-    <Room>The Forbbiden Tree</Room>
-    <HP>20</HP>
-  </Creature>
+
   <Creature>
     <Name>Sr_lapiz</Name>
     <Description>Ugh I am so drunk. This wine is good, but nothing compares to the taste of the forbidden apple, only the princess can taste it.</Description>
     <Room>The Garden</Room>
+    <HP>20</HP>
+  </Creature>
+  <Creature>
+    <Name>Right_guard</Name>
+    <Description>Everyone wishes for the forbbiden apple, but it's effects are too strong for the human mind.</Description>
+    <Room>The Laberinth</Room>
+    <HP>20</HP>
+  </Creature>
+  <Creature>
+    <Name>Left_guard</Name>
+    <Description> The princess says that effects of the forbbiden apple make your dreams real.</Description>
+    <Room>The Laberinth</Room>
     <HP>20</HP>
   </Creature>
 </Creatures>
